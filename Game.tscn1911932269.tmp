@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://chvfd1jh8p2lh"]
+
+[ext_resource type="PackedScene" uid="uid://qkjkvxjrr0fs" path="res://arena.tscn" id="1_xkndl"]
+[ext_resource type="PackedScene" uid="uid://bkbn6qrfvqmn8" path="res://tank.tscn" id="3_sb48q"]
+[ext_resource type="Script" uid="uid://bbecbdjwkc2ax" path="res://tank.gd" id="4_sb48q"]
+
+[node name="Game" type="Node3D" unique_id=1942164093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3436, 0, 0)
+
+[node name="arena" parent="." unique_id=916106463 instance=ExtResource("1_xkndl")]
+transform = Transform3D(2.8764973, 0, 0, 0, 1, 0, 0, 0, 2.5333698, 0, 0, 0)
+
+[node name="Player_Tank" parent="." unique_id=195191181 instance=ExtResource("3_sb48q")]
+transform = Transform3D(2.8764973, 0, 0, 0, 2.4844742, 0, 0, 0, 4.489294, 0, 0, 0)
+script = ExtResource("4_sb48q")

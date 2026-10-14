@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://djn5kdmb8ajy2"]
+
+[node name="Wall2" type="StaticBody3D" unique_id=8650102]
+transform = Transform3D(1, 0, 0, 0, 18.335596, 0, 0, 0, 99.1709, 0, 0, 0)

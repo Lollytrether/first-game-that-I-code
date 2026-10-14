@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://316rws8380n2"]
+
+[ext_resource type="PackedScene" uid="uid://dtpg311vo4n5l" path="res://Turret barrel.glb" id="1_jpvfl"]
+
+[node name="Turret barrel" unique_id=1905063274 instance=ExtResource("1_jpvfl")]
+
+[node name="Cylinder" parent="." index="0" unique_id=28010649]
+transform = Transform3D(1, 0, 0, 0, 1.4898057, 0, 0, 0, 1, -0.26179898, 0, -0.11440849)

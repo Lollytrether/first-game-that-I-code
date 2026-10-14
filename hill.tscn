@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cpwohlp7lpgcs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ag5fc"]
+albedo_color = Color(0.34763137, 0.72027576, 0.43466514, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_pt35i"]
+material = SubResource("StandardMaterial3D_ag5fc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pt35i"]
+size = Vector3(0.5, 4, 3.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tntht"]
+size = Vector3(4, 1, 2.9)
+
+[node name="Hill" type="StaticBody3D" unique_id=427056161]
+transform = Transform3D(0.4136338, -0.9514065, 0.03560458, -0.6559719, -0.5999234, 0.022602797, -4.5001507e-05, -0.021444436, -2.211968, 0, 0, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1464055826]
+transform = Transform3D(3.4270246, -1.125955, 0.009936554, 1.0045943, 3.8410525, 0.0014050901, -0.009736338, 0.0015898645, 3.6425037, -0.7256562, -0.31537157, 0.0030722064)
+mesh = SubResource("PrismMesh_pt35i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=519310234]
+transform = Transform3D(0.99117416, 0.13231455, 0.00819125, -0.13234368, 0.9911988, 0.0032297783, -0.0076918835, -0.0042853737, 0.9999612, -1.4459766, -0.4843194, 0.0031243656)
+shape = SubResource("BoxShape3D_pt35i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=764899357]
+transform = Transform3D(-0.0065516564, 0.2569643, 0.9143845, 0.013603885, -0.84587497, 0.27782363, 0.9577787, 0.013771517, 0.002309554, -0.4616729, -1.8093753, 0.017550811)
+shape = SubResource("BoxShape3D_tntht")

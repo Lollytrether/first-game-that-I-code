@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dhbktkq7ux16k"]
+
+[ext_resource type="Texture2D" uid="uid://ds7qqy5lc3oju" path="res://sand.png" id="1_xxgf6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0xag"]
+albedo_texture = ExtResource("1_xxgf6")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ag5fc"]
+material = SubResource("StandardMaterial3D_g0xag")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ag5fc"]
+size = Vector3(1, 20, 25)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=16598330]
+collision_layer = 2
+
+[node name="Wall" type="MeshInstance3D" parent="." unique_id=89138206]
+transform = Transform3D(1, 0, 0, 0, 18.335596, 0, 0, 0, 25.176306, 0, 0, 0)
+mesh = SubResource("BoxMesh_ag5fc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1784837605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.009141922)
+shape = SubResource("BoxShape3D_ag5fc")

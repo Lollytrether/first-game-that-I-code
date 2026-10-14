@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8p5kyb0ddip1"]
+
+[ext_resource type="PackedScene" uid="uid://bkbn6qrfvqmn8" path="res://tank.tscn" id="1_kg2mx"]
+
+[node name="Player_Tank" type="CharacterBody3D" unique_id=942226978]
+
+[node name="Tank" parent="." unique_id=94822248 instance=ExtResource("1_kg2mx")]
+script = null

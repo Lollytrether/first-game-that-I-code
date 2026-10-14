@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bvklblu8uyl6d"]
+
+[ext_resource type="Texture2D" uid="uid://bu123ja86wqnp" path="res://Metal01.jpg" id="1_2e587"]
+[ext_resource type="Script" uid="uid://cls7858etwaqh" path="res://shell.gd" id="1_tw874"]
+[ext_resource type="Texture2D" uid="uid://dcn3beydof7vd" path="res://Metal01_AO.jpg" id="2_tw874"]
+[ext_resource type="Texture2D" uid="uid://cpjvmh8rd5dhh" path="res://Metal01_NRM.jpg" id="3_1hf6u"]
+
+[sub_resource type="Curve" id="Curve_2e587"]
+_data = [Vector2(0, 0.31250006), 0.0, 0.15009035, 0, 0, Vector2(0.43975905, 0.29464293), 0.0, 0.0, 0, 0, Vector2(0.7349397, 0.2589286), 0.0, 0.0, 0, 0, Vector2(1, 0.017857194), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbtuc"]
+albedo_texture = ExtResource("1_2e587")
+albedo_texture_force_srgb = true
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("1_2e587")
+metallic_texture_channel = 4
+roughness = 0.0
+emission_enabled = true
+normal_enabled = true
+normal_scale = 4.66
+normal_texture = ExtResource("3_1hf6u")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_tw874")
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_pt35i"]
+material = SubResource("StandardMaterial3D_pbtuc")
+radius = 0.15
+radial_steps = 25
+sections = 2
+section_length = 0.15
+curve = SubResource("Curve_2e587")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ag5fc"]
+height = 0.3
+radius = 0.048
+
+[node name="Shell" type="RigidBody3D" unique_id=2042891078]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("1_tw874")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=841777853]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("TubeTrailMesh_pt35i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1675458511]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -0.00157547)
+shape = SubResource("CylinderShape3D_ag5fc")

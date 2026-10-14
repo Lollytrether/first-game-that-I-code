@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bkbn6qrfvqmn8"]
+
+[ext_resource type="Script" uid="uid://c0d48ev741iy0" path="res://scripts/tank.gd" id="1_6c63f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_salnv"]
+albedo_color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fij7d"]
+material = SubResource("StandardMaterial3D_salnv")
+size = Vector3(3, 0.25, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0dey3"]
+albedo_color = Color(0.12549, 0.329412, 0.12549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgkfd"]
+material = SubResource("StandardMaterial3D_0dey3")
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o3nm"]
+albedo_color = Color(0.12549, 0.329412, 0.12549, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_3ue88"]
+material = SubResource("StandardMaterial3D_3o3nm")
+left_to_right = 0.0
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_6gdce"]
+material = SubResource("StandardMaterial3D_3o3nm")
+left_to_right = 0.0
+size = Vector3(1.5, 0.5, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_1but8"]
+material = SubResource("StandardMaterial3D_0dey3")
+radius = 0.25
+radial_steps = 12
+sections = 2
+section_length = 0.125
+section_rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0gwbh"]
+material = SubResource("StandardMaterial3D_0dey3")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.5
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_43oho"]
+material = SubResource("StandardMaterial3D_0dey3")
+radius = 0.1
+radial_steps = 6
+sections = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tntht"]
+size = Vector3(3.1714478, 1.5092773, 1)
+
+[node name="Tank" type="CharacterBody3D" unique_id=16364553 node_paths=PackedStringArray("turret", "turret_hinge", "shell_fire_point", "reload_timer")]
+collision_mask = 6
+script = ExtResource("1_6c63f")
+turret = NodePath("Body/Turret")
+turret_hinge = NodePath("Body/Turret/Barrel Anchorpoint")
+shell_fire_point = NodePath("Body/Turret/Barrel Anchorpoint/Marker3D")
+reload_timer = NodePath("Reload_Timer")
+
+[node name="Body" type="Node3D" parent="." unique_id=58392018]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.8797186, 0, 1, 0, -4.371139e-08, 0, 0.625803, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1838741203]
+mesh = SubResource("BoxMesh_fij7d")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body" unique_id=1699399318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.375, 0)
+mesh = SubResource("BoxMesh_kgkfd")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Body" unique_id=688725079]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -1.24701, -0.375, 0)
+mesh = SubResource("PrismMesh_3ue88")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Body" unique_id=1719167701]
+transform = Transform3D(1, -8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0, -8.74228e-08, 7.64274e-15, -1, 0.75, -0.375, 0)
+mesh = SubResource("PrismMesh_6gdce")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Body" unique_id=1899757746]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.5, 0.375, 0)
+mesh = SubResource("BoxMesh_kgkfd")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Body" unique_id=1910684697]
+transform = Transform3D(-1, -1.50996e-07, 0, -1.50996e-07, 1, 8.74228e-08, -1.32005e-14, 8.74228e-08, -1, -1.24701, 0.375, 0)
+mesh = SubResource("PrismMesh_3ue88")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Body" unique_id=423918096]
+transform = Transform3D(1, -1.50996e-07, 1.50996e-07, 1.50996e-07, 1, 8.74228e-08, -1.50996e-07, -8.74228e-08, 1, 0.75, 0.375, 0)
+mesh = SubResource("PrismMesh_6gdce")
+skeleton = NodePath("../..")
+
+[node name="Turret" type="Node3D" parent="Body" unique_id=475748439]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1.1367271, 0, 3.5527137e-15, 0, 1, -0.5526428, 0.85199624, -0.007146394)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Turret" unique_id=403595985]
+transform = Transform3D(1.4719399, 0, 7.1054274e-15, 0, 2.260446, 0, 0, 0, 1.5480708, 0, 0.03935218, 0)
+mesh = SubResource("TubeTrailMesh_1but8")
+
+[node name="Barrel Anchorpoint" type="Node3D" parent="Body/Turret" unique_id=2010045895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167599, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body/Turret/Barrel Anchorpoint" unique_id=1506470990]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.757496, -0.031082392, 0)
+mesh = SubResource("CylinderMesh_0gwbh")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="Body/Turret/Barrel Anchorpoint" unique_id=1528313605]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 1.5714605, -0.017745495, -0.0073952843)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Body/Turret/Barrel Anchorpoint" unique_id=1979005210]
+transform = Transform3D(-4.37114e-08, -1.2554202, 0, 1, -5.4876175e-08, 0, 0, 0, 1, 1.6363217, -0.031082392, 3.259629e-09)
+mesh = SubResource("TubeTrailMesh_43oho")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=376483026]
+transform = Transform3D(-1, 4.291617e-08, -7.6163936e-08, 0, 0.87121385, 0.49090376, 8.742278e-08, 0.49090376, -0.87121385, 0.0076425076, 1.99694, -1.541687)
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=406714525]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.05307007, 0.80216265, 0)
+shape = SubResource("BoxShape3D_tntht")
+
+[node name="Reload_Timer" type="Timer" parent="." unique_id=1494368175]
+wait_time = 2.0
+
+[connection signal="timeout" from="Reload_Timer" to="." method="_on_reload_timer_timeout"]

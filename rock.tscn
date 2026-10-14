@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck26ttnp1tln6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etksx"]
+albedo_color = Color(0.244776, 0.244776, 0.244776, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jdlyg"]
+material = SubResource("StandardMaterial3D_etksx")
+radius = 0.75
+
+[node name="Rock" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135498, 0)
+mesh = SubResource("SphereMesh_jdlyg")
