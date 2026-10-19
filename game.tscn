@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://qkjkvxjrr0fs" path="res://arena.tscn" id="1_uk0ac"]
 [ext_resource type="PackedScene" uid="uid://bkbn6qrfvqmn8" path="res://tank.tscn" id="2_ekmh1"]
 [ext_resource type="PackedScene" uid="uid://bvklblu8uyl6d" path="res://shell.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://cmn5icmwidfjf" path="res://enemy_tank.tscn" id="5_7jktm"]
 
 [node name="Game" type="Node3D" unique_id=237156833 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ingrv")
@@ -12,6 +13,10 @@ player = NodePath("Player Tank")
 [node name="Arena" parent="." unique_id=893007308 instance=ExtResource("1_uk0ac")]
 
 [node name="Player Tank" parent="." unique_id=736303473 instance=ExtResource("2_ekmh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.3461914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3505807, -4.3461914)
 turret_move_speed = 90.0
+shell_prefab = ExtResource("4_fc0e3")
+
+[node name="enemy_tank" parent="." unique_id=16364553 instance=ExtResource("5_7jktm")]
+transform = Transform3D(-0.97579336, 0, 0.21869512, 0, 1, 0, -0.21869512, 0, -0.97579336, 2.4820657, 0.37550843, 1.8389418)
 shell_prefab = ExtResource("4_fc0e3")

@@ -25,12 +25,18 @@ DialogueManager="*uid://c3rodes2l3gxb"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/asset_placer/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+Shellable=""
 
 [layer_names]
 
+3d_render/layer_2="NavPoints"
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Obstacle"
 3d_physics/layer_3="Enemies"
 3d_physics/layer_4="Ground"
 3d_physics/layer_5="Shell"
+3d_physics/layer_6="NavPoints"

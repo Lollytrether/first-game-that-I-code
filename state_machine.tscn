@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bsbeubhtna7gv"]
+
+[ext_resource type="Script" uid="uid://cqjfh5f42cx4v" path="res://state_machine.gd" id="1_yf3jm"]
+[ext_resource type="Script" uid="uid://bsf3vifn8doyi" path="res://firing_state.gd" id="2_35xbh"]
+[ext_resource type="Script" uid="uid://cvllhkyl1yyql" path="res://hunting_state.gd" id="3_wbto3"]
+
+[node name="StateMachine" type="Node" unique_id=476703395]
+script = ExtResource("1_yf3jm")
+states = {
+"\"default\"": ExtResource("3_wbto3"),
+"\"firing_state\"": ExtResource("2_35xbh"),
+"\"hunting_state\"": ExtResource("3_wbto3")
+}

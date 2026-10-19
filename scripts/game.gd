@@ -5,6 +5,7 @@ var player:Tank
 
 func _ready():
 	player.SHELL_FIRED.connect(_on_shell_fired)
+	get_node("enemy_tank").SHELL_FIRED.connect(_on_shell_fired)
 	
 func _unhandled_key_input(event):
 	var turn_value:float = Input.get_axis("ui_right", "ui_left")

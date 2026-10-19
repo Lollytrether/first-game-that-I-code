@@ -72,6 +72,8 @@ func angle_turret(input_value:float):
 	
 
 func fire_shell(ignore_layer:int):
+	if (reloading):
+		return
 	var shell:Shell = shell_prefab.instantiate()
 	var impulse:Vector3 = Vector3.BACK* muzzle_velocity
 	shell.set_collision_mask_value(ignore_layer, false)

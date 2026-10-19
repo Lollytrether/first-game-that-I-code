@@ -1,17 +1,11 @@
 [gd_scene format=3 uid="uid://qkjkvxjrr0fs"]
 
 [ext_resource type="PackedScene" uid="uid://dr7vlbtr8tfyy" path="res://ground.tscn" id="1_fu4bq"]
-[ext_resource type="Texture2D" uid="uid://ba0sv63egkcdy" path="res://External Assets in use/Rocks_Desert_Diffuse.png" id="2_35c7g"]
 [ext_resource type="PackedScene" uid="uid://cpwohlp7lpgcs" path="res://hill.tscn" id="3_pbtuc"]
-[ext_resource type="PackedScene" uid="uid://q5wxreqi0r81" path="res://common_tree_1.tscn" id="3_sbb53"]
-[ext_resource type="PackedScene" uid="uid://b38hpp70ecxpv" path="res://rock_medium_12.tscn" id="4_sbb53"]
+[ext_resource type="PackedScene" uid="uid://eap84me8mn0b" path="res://nav_point.tscn" id="4_h0wof"]
 [ext_resource type="PackedScene" uid="uid://dhbktkq7ux16k" path="res://wall.tscn" id="6_sbb53"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35c7g"]
-albedo_texture = ExtResource("2_35c7g")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_pt35i"]
-size = Vector3(90, 1.1, 67)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_27ga2"]
 
 [node name="arena" type="Node3D" unique_id=916106463]
 
@@ -19,61 +13,13 @@ size = Vector3(90, 1.1, 67)
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=2145027657]
-
-[node name="Ground_model" parent="Ground" unique_id=28287613 instance=ExtResource("1_fu4bq")]
-material_override = SubResource("StandardMaterial3D_35c7g")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=891774944]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_pt35i")
+[node name="Ground" parent="." unique_id=28287613 instance=ExtResource("1_fu4bq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4019742, -0.2155075, 0.33187103)
+physics_material_override = SubResource("PhysicsMaterial_27ga2")
 
 [node name="Trees" type="Node3D" parent="." unique_id=1665342144]
 
-[node name="CommonTree_1" parent="Trees" unique_id=763841548 instance=ExtResource("3_sbb53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.092407, 0, -21.3844)
-
-[node name="CommonTree_2" parent="Trees" unique_id=600586901 instance=ExtResource("3_sbb53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.296997, 0, -21.3844)
-
-[node name="CommonTree_3" parent="Trees" unique_id=2121919621 instance=ExtResource("3_sbb53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.910248, 0, -21.3844)
-
-[node name="CommonTree_4" parent="Trees" unique_id=1879770849 instance=ExtResource("3_sbb53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.092407, 0, 9.598145)
-
-[node name="CommonTree_5" parent="Trees" unique_id=75273254 instance=ExtResource("3_sbb53")]
-transform = Transform3D(0.3155348, 0, 0.948914, 0, 1, 0, -0.948914, 0, 0.3155348, -20.296997, 0, 9.598145)
-
-[node name="CommonTree_6" parent="Trees" unique_id=1954982456 instance=ExtResource("3_sbb53")]
-transform = Transform3D(0.22435954, 0, -0.97450644, 0, 1, 0, 0.97450644, 0, 0.22435954, 7.910248, 0, 9.598145)
-
-[node name="CommonTree_7" parent="Trees" unique_id=2079742351 instance=ExtResource("3_sbb53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9360962, 0, 9.598145)
-
-[node name="CommonTree_8" parent="Trees" unique_id=553876188 instance=ExtResource("3_sbb53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.859314, 0, -16.163574)
-
-[node name="CommonTree_9" parent="Trees" unique_id=1962226113 instance=ExtResource("3_sbb53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.06656, 0, 9.598145)
-
 [node name="Rocks" type="Node3D" parent="." unique_id=579926160]
-
-[node name="Rock_Medium_12" parent="Rocks" unique_id=1957102253 instance=ExtResource("4_sbb53")]
-transform = Transform3D(3.4966671, 0, 0, 0, 3.0561109, 0, 0, 0, 2.6119938, 4.2938232, 0, 36.58997)
-
-[node name="Rock_Medium_13" parent="Rocks" unique_id=189728591 instance=ExtResource("4_sbb53")]
-transform = Transform3D(-0.21114083, 0, 2.6072278, 0, 3.0561113, 0, -3.4902866, 0, -0.15772118, 4.2938232, 0, -36.200733)
-
-[node name="Rock_Medium_14" parent="Rocks" unique_id=1131197648 instance=ExtResource("4_sbb53")]
-transform = Transform3D(2.3343349, 0, -1.9447091, 0, 3.0561113, 0, 2.6033752, 0, 1.743737, -22.499878, 0, -36.200733)
-
-[node name="Rock_Medium_15" parent="Rocks" unique_id=1023201596 instance=ExtResource("4_sbb53")]
-transform = Transform3D(1.9560763, 0, -2.165056, 0, 3.0561113, 0, 2.8983526, 0, 1.4611796, -22.499878, 0, -6.5444107)
-
-[node name="Rock_Medium_16" parent="Rocks" unique_id=491170964 instance=ExtResource("4_sbb53")]
-transform = Transform3D(0.5912072, 0, 2.5743887, 0, 3.0561113, 0, -3.4463248, 0, 0.44162896, -46.733643, 0, 34.461052)
 
 [node name="Hills" type="Node3D" parent="." unique_id=364920346]
 
@@ -105,3 +51,32 @@ transform = Transform3D(-0.006966357, 0, 5.280044, 0, 0.99092716, 0, -0.99784374
 
 [node name="Wall7" parent="Walls" unique_id=2123041833 instance=ExtResource("6_sbb53")]
 transform = Transform3D(-0.006966357, 0, 5.280044, 0, 0.99092716, 0, -0.99784374, 0, -0.03686216, -0.037719727, 8.346916, -50.247)
+
+[node name="Path Nodes" type="Node3D" parent="." unique_id=519482909]
+
+[node name="NavPoint" parent="Path Nodes" unique_id=2021545887 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0.82654893, 0)
+
+[node name="NavPoint3" parent="Path Nodes" unique_id=17320924 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0.82654893, 22.819344)
+
+[node name="NavPoint4" parent="Path Nodes" unique_id=444881585 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.185398, 0.82654893, 22.819344)
+
+[node name="NavPoint5" parent="Path Nodes" unique_id=784200455 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.756546, 0.82654893, 30.2429)
+
+[node name="NavPoint6" parent="Path Nodes" unique_id=1659634620 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.676296, 0.82654893, -2.143547)
+
+[node name="NavPoint7" parent="Path Nodes" unique_id=21537261 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.840473, 0.82654893, -33.426266)
+
+[node name="NavPoint8" parent="Path Nodes" unique_id=1862218367 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.720352, 0.82654893, -22.45888)
+
+[node name="NavPoint9" parent="Path Nodes" unique_id=372058149 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.269115, 0.82654893, -22.45888)
+
+[node name="NavPoint2" parent="Path Nodes" unique_id=295876296 instance=ExtResource("4_h0wof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0.82654893, -28.212435)
