@@ -11,7 +11,10 @@ Arrow keys to move the tank
 CTRL+ Arrow keys to aim with turret
 Space to fire
 Both the enemy tank and the player are quick so at the start, RUN! (or you will die)
+Supported Platforms:
+Godot Engine and x64 Windows 
 
+Overview:
 First week:
 40% level design and modelling
 Adding basic controls for the player (move, aim, shoot)
