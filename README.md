@@ -5,3 +5,9 @@ If I do fix the pathfinding for the AI/make it so that the enemy tank doesn't mo
 And this readme which I am now rewriting for some odd reason might have corrupted.
 I can't remember where I got the textures from (some were downloaded a couple years ago, I lost the URLs to the other websites)
 Also, the collisions/physics/bullet bouncing doesn't show as that technically was a bug (bit odd to show the bullets bouncing off the tanks when they shouldn't)
+
+Controls:
+Arrow keys to move the tank
+CTRL+ Arrow keys to aim with turret
+Space to fire
+Both the enemy tank and the player are quick so at the start, RUN! (or you will die)
