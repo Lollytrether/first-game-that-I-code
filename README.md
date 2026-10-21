@@ -11,3 +11,11 @@ Arrow keys to move the tank
 CTRL+ Arrow keys to aim with turret
 Space to fire
 Both the enemy tank and the player are quick so at the start, RUN! (or you will die)
+
+First week:
+40% level design and modelling
+Adding basic controls for the player (move, aim, shoot)
+Physics engine makes bullets bounce
+
+Second week:
+Removing the bullet bounce and adding enemy AI (buggy- moves while aiming, does not follow player that well)
