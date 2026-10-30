@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bkbn6qrfvqmn8" path="res://tank.tscn" id="2_ekmh1"]
 [ext_resource type="PackedScene" uid="uid://bvklblu8uyl6d" path="res://shell.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cmn5icmwidfjf" path="res://enemy_tank.tscn" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://bh7fwregf7ot8" path="res://gameover_overlay.gd" id="6_ryrav"]
 
 [node name="Game" type="Node3D" unique_id=237156833 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ingrv")
@@ -20,3 +21,48 @@ shell_prefab = ExtResource("4_fc0e3")
 [node name="enemy_tank" parent="." unique_id=16364553 instance=ExtResource("5_7jktm")]
 transform = Transform3D(-0.97579336, 0, 0.21869512, 0, 1, 0, -0.21869512, 0, -0.97579336, 2.4820657, 0.37550843, 1.8389418)
 shell_prefab = ExtResource("4_fc0e3")
+
+[node name="Gameover_overlay" type="CanvasLayer" parent="." unique_id=109172385]
+process_mode = 3
+layer = 3
+script = ExtResource("6_ryrav")
+
+[node name="ColorRect" type="ColorRect" parent="Gameover_overlay" unique_id=1222057409]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.5019608)
+
+[node name="CenterContainer" type="CenterContainer" parent="Gameover_overlay" unique_id=1193232679]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Gameover_overlay/CenterContainer" unique_id=1455675406]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Gameover_overlay/CenterContainer/VBoxContainer" unique_id=825462150]
+layout_mode = 2
+text = "GAME OVER"
+
+[node name="Restart" type="Button" parent="Gameover_overlay/CenterContainer/VBoxContainer" unique_id=849021466]
+layout_mode = 2
+text = "Retry"
+
+[node name="Quit" type="Button" parent="Gameover_overlay/CenterContainer/VBoxContainer" unique_id=1212560698]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Gameover_overlay/CenterContainer/VBoxContainer/Restart" to="Gameover_overlay" method="_on_restart_pressed"]
+[connection signal="pressed" from="Gameover_overlay/CenterContainer/VBoxContainer/Quit" to="Gameover_overlay" method="_on_quit_pressed"]

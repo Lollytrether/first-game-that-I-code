@@ -32,13 +32,13 @@ var forward_speed:float
 var turret_rotation_speed:float
 var turret_angle_speed:float
 var reloading:bool
+var player_status: bool
 @export_group("Shell")
 @export var shell_prefab: PackedScene
 @export var shell_fire_point: Marker3D
 @export var muzzle_velocity: int = 20
 @export var reload_timer:Timer
-
-
+	
 func _physics_process(delta):
 	rotation_degrees += Vector3(0, rotation_speed * delta, 0)
 	velocity = transform.basis.z * forward_speed
@@ -91,3 +91,4 @@ func fire_shell(ignore_layer:int):
 
 func _on_reload_timer_timeout() -> void:
 	reloading = false
+	
